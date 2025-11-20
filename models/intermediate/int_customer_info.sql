@@ -1,0 +1,4 @@
+
+{#id , c_name,nation id,
+first ordered at,last ordered at,
+life time orders,life time tax,customer type #}
