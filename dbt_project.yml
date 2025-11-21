@@ -41,4 +41,7 @@ models:
 
 vars:
   v_id: '_02'
+  size: 15
+  type: "BRASS"
+  region: "EUROPE"
 

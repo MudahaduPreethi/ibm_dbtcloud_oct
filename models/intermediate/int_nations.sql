@@ -1,7 +1,6 @@
 {{ config(
     materialized='incremental',
-    unique_key = 'nation_id',
-    on_schema_change = 'sync_all_columns'
+    unique_key = 'nation_id'
 ) }}
 
 with nation as (
@@ -9,8 +8,6 @@ with nation as (
         nation_id,
         region_id,
         name,
-        comment,
-        jodo_col,
         updated_at
     from {{ ref('stg_nations') }} as s
 

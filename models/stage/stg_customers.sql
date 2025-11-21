@@ -1,3 +1,9 @@
+{{ config(
+    tags = 'sample')}}
+    {#pre_hook = 'use warehouse test_wh',
+    post_hook = 'select * from Analytics.dbt_preethi.stg_regions'#}
+        
+
 with
     customer as (
         select
@@ -12,4 +18,4 @@ with
         from {{ source("src", "customers") }}
     )
 select *
-from customer limit 100
+from customer
