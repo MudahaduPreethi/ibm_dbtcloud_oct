@@ -16,8 +16,10 @@ regions as (
     from {{ ref('stg_regions') }}
 )
 
-select s.*,n.name as nation_name,n.updated_at,r.region_id as region_id,r.name as region_name,
-r.comment as region_comment
+select
+    s.* exclude nation_id,
+    n.name as nation,
+    r.name as region
 from suppliers s
 join nations n
     on s.nation_id = n.nation_id
