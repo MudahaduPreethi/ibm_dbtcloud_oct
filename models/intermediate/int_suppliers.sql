@@ -18,8 +18,8 @@ regions as (
 
 select
     s.* exclude nation_id,
-    n.name as nation,
-    r.name as region
+    n.nation_name as nation_name,
+    r.region_name as region_name
 from suppliers s
 join nations n
     on s.nation_id = n.nation_id

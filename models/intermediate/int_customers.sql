@@ -13,7 +13,7 @@ regions as (
     from {{ ref('stg_regions') }}
 )
 
-select c.*,n.name as nation_name,n.updated_at,r.region_id as region_id,r.name as region_name,
+select c.*,n.nation_name as nation_name,n.updated_at,r.region_id as region_id,r.region_name as region_name,
 r.comment as region_comment
 from customers c
 join nations n

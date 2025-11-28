@@ -10,7 +10,7 @@ sources:
 
       - name: nations
         columns:
-          - name: nation_id
+          - name: n_nationkey
             data_type: int
             constraints:
               - type: not_null
@@ -19,10 +19,10 @@ sources:
               - unique
               - not_null
 
-          - name: name
+          - name: n_name
             data_type: string
 
-          - name: region_id
+          - name: n_regionkey
             data_type: int
             description: '{{ doc("foreign_key") }}'
             tests:
