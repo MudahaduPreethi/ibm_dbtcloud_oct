@@ -2,27 +2,52 @@ sources:
   - name: src
     database: sourcedb
     schema: mk_mall
+
     tables:
       - name: partsupps
       - name: suppliers
       - name: customers
+
       - name: nations
+        columns:
+          - name: nation_id
+            data_type: int
+            constraints:
+              - type: not_null
+            description: '{{ doc("primary_key") }}'
+            tests:
+              - unique
+              - not_null
+
+          - name: name
+            data_type: string
+
+          - name: region_id
+            data_type: int
+            description: '{{ doc("foreign_key") }}'
+            tests:
+              - relationships:
+                  arguments:
+                    to: ref('stg_regions')
+                    field: region_id
       - name: regions
       - name: v_nations
       - name: lineitems
       - name: parts
       - name: stg_employees
+
       - name: orders
         config:
-          freshness: 
+          freshness:
             warn_after: {count: 1, period: day}
-            error_after: {count: 3, period: day}
+            error_after: {count: 10, period: day}
           loaded_at_field: o_orderdate::timestamp_ntz
   - name: src2
     database: mkmotors_dev
     schema: staging
     tables:
       - name: stg_employees
+
   - name: src3
     database: analytics
     schema: dbt_preethi
