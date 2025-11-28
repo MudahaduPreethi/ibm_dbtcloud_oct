@@ -2,8 +2,9 @@
 with region as (
 select 
         r_regionkey as region_id,
-        r_name as name,
-        r_comment as comment
+        r_name as region_name,
+        r_comment as comment,
+        {{ dbt_meta() }}
 from {{ source('src', 'regions') }}
 )           
 select * from region

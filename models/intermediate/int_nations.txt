@@ -7,9 +7,9 @@ with nation as (
     select 
         nation_id,
         region_id,
-        name,
+        nation_name,
         updated_at
-    from {{ ref('stg_nations') }} as s
+    from {{ ref('stg_nations') }}
 
     {% if is_incremental() %}
     where updated_at > (
