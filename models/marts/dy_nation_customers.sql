@@ -6,9 +6,9 @@
 ) }}
 
 select
-    n.name as nation_name,
+    n.nation_name as nation_name,
     count(c.customer_id) as num_of_customers,
     sum(c.account_balance) as Account_balance
 from {{ ref('stg_customers') }} c
 join {{ ref('stg_nations') }} n on c.nation_id = n.nation_id
-group by n.name
+group by n.nation_name
